@@ -9,6 +9,7 @@ import cookie from "react-cookies";
 import { styles } from "./styles";
 
 import { AppBar } from "../../components/AppBar";
+import { API_PROTO, API_IP, API_PORT } from "../../settings";
 
 class unstyledViewsheet extends Component {
 
@@ -34,7 +35,7 @@ class unstyledViewsheet extends Component {
             });
         }else{
 
-            let response = await fetch("http://localhost:8080/api/getsignins", 
+            let response = await fetch(API_PROTO + "://" + API_IP + ":" + API_PORT + "/api/getsignins", 
                 {
                     method: "POST",
                     headers: {
@@ -64,7 +65,7 @@ class unstyledViewsheet extends Component {
                 toast.error("There was an unexpected error. Please wait and try again");
             }
 
-            let responseInfo = await fetch("http://localhost:8080/api/getsheetinfo", 
+            let responseInfo = await fetch(API_PROTO + "://" + API_IP + ":" + API_PORT + "/api/getsheetinfo", 
                 {
                     method: "POST",
                     headers: {
@@ -151,7 +152,7 @@ class unstyledViewsheet extends Component {
                         <InfiniteScroll items={this.state.signins}>
                                 {
                                     (item) => (
-                                        <div className={classes.signinPerson}>
+                                        <div className={classes.signinPerson} key={item.id}>
                                             {item.name}
                                         </div>
                                     )

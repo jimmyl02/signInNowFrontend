@@ -1,7 +1,16 @@
+import logo from "../../images/signinnow.png";
+
 export const styles = {
     body:{
         height: "100vh",
-        backgroundColor: "#f79d5c" 
+        background: "linear-gradient(45deg, rgba(133,50,218,1) 0%, rgba(100,100,231,1) 50%, rgba(6,213,255,1) 100%);" 
+    },
+    logoBoundingBox:{
+        backgroundImage: "url(" + logo + ")",
+        height: "75%",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "contain",
+        backgroundPosition: "center"
     },
     loginRight:{
         height: "6vh",
@@ -18,26 +27,12 @@ export const styles = {
         justifyContent: "center"
     },
     signinContainer:{
-        alignText: "center",
-        justifyContent: "center"
-    },
-    signinCode:{
-        width: "192px",
-        backgroundColor: "#E0F6FB"
-    },
-    signinName:{
-        width: "192px",
-        marginTop: "1vh",
-        backgroundColor: "#E0F6FB"
-    },
-    signinSubmit:{
-        width: "140px",
-        backgroundColor: "#aff3ff",
-        marginTop: "1vh",
+        textAlign: "center",
+        justifyContent: "center",
+        marginTop: "-10em"
     },
     loginSubmit:{
         width: "140px",
-        backgroundColor: "#f3752b",
         marginTop: "1vh",
         marginBottom: "-5px"
     }

@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 import cookie from "react-cookies";
 import { SignInForm } from "../../components/forms/SignInForm";
+import { API_PROTO, API_IP, API_PORT } from "../../settings";
 
 import { styles } from "./styles";
 
@@ -40,7 +41,7 @@ class unstyledSignin extends Component {
             return;
         }
         
-        let response = await fetch("http://localhost:8080/api/signin", 
+        let response = await fetch(API_PROTO + "://" + API_IP + ":" + API_PORT +"/api/signin", 
             {
                 method: "POST",
                 headers: {
@@ -67,7 +68,7 @@ class unstyledSignin extends Component {
 
         if(this.state.redirectLogin){
             return(
-                <Redirect to="/login" />
+                <Redirect push to="/login" />
             );
         }else{
             return(
@@ -82,7 +83,7 @@ class unstyledSignin extends Component {
                     </div>
                     <div className={ classes.signinCenter }>
                         <div className={ classes.signinContainer }>
-                            <p>Sign In Now Logo</p>
+                            <div className={ classes.logoBoundingBox }/>
                             <SignInForm onSubmit={this.handleSignIn}/>
                         </div>
                     </div>

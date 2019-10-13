@@ -10,6 +10,7 @@ import cookie from "react-cookies";
 import { styles } from "./styles";
 
 import { AppBar } from "../../components/AppBar";
+import { API_PROTO, API_IP, API_PORT } from "../../settings";
 
 class unstyledHome extends Component {
 
@@ -34,7 +35,7 @@ class unstyledHome extends Component {
                 "redirectLogin": true
             });
         }else{
-            let response = await fetch("http://localhost:8080/api/getsheets", 
+            let response = await fetch(API_PROTO + "://" + API_IP + ":" + API_PORT + "/api/getsheets", 
                 {
                     method: "POST",
                     headers: {
@@ -119,10 +120,10 @@ class unstyledHome extends Component {
                         <InfiniteScroll items={this.state.sheets}>
                                 {
                                     (item) => (
-                                        <Link to={"/viewsheet/"+ item.UUID} key={item.id} className={classes.sheetLink}>
+                                        <Link to={"/viewsheet/"+ item.UUID} key={item.name} className={classes.sheetLink}>
                                             <Box
                                                 direction="row"
-                                                border={{ "color": "status-unknown", "size": "small" }}
+                                                elevation="medium"
                                                 margin={{ "left": "medium", "right": "medium", "top": "medium" }}
                                             >
                                                 <Box

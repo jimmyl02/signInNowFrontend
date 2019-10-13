@@ -10,6 +10,7 @@ import { styles } from "./styles";
 
 import { AppBar } from "../../components/AppBar";
 import { CreateSheetForm } from "../../components/forms/CreateSheetForm";
+import { API_PROTO, API_IP, API_PORT } from "../../settings";
 
 class unstyledCreateSheet extends Component {
 
@@ -33,7 +34,7 @@ class unstyledCreateSheet extends Component {
             });
         }else{
 
-            let response = await fetch("http://localhost:8080/api/createsheet", 
+            let response = await fetch(API_PROTO + "://" + API_IP + ":" + API_PORT + "/api/createsheet", 
                 {
                     method: "POST",
                     headers: {

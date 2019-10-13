@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import cookie from "react-cookies";
 
 import { RegisterForm } from "../../components/forms/RegisterForm";
+import { API_PROTO, API_IP, API_PORT } from "../../settings";
 
 import { styles } from "./styles";
 
@@ -23,7 +24,7 @@ class unstyledRegister extends Component {
 
     handleRegister = async (values, actions) => {
 
-        let response = await fetch("http://localhost:8080/api/register", 
+        let response = await fetch(API_PROTO + "://" + API_IP + ":" + API_PORT + "/api/register", 
             {
                 method: "POST",
                 headers: {

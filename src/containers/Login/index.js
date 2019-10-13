@@ -5,8 +5,8 @@ import { toast } from "react-toastify";
 import { Anchor } from "grommet";
 
 import cookie from "react-cookies";
-
 import { LoginForm } from "../../components/forms/LoginForm";
+import { API_PROTO, API_IP, API_PORT } from "../../settings";
 
 import { styles } from "./styles";
 
@@ -31,7 +31,7 @@ class unstyledLogin extends Component {
 
     handleLogin = async (values, actions) => {
 
-        let response = await fetch("http://localhost:8080/api/login", 
+        let response = await fetch(API_PROTO + "://" + API_IP + ":" + API_PORT + "/api/login", 
             {
                 method: "POST",
                 headers: {
